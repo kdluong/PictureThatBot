@@ -9,7 +9,7 @@ def generateImage(api, prompt):
 
     try:
         response = client.images.generate(
-            model="dall-e-2",
+            model="dall-e-3",
             prompt=prompt,
             size="1024x1024",
             quality="standard",
@@ -23,4 +23,3 @@ def generateImage(api, prompt):
 
     except Exception as e:
         return 'fail'
-    
