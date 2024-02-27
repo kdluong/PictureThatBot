@@ -1,10 +1,11 @@
 from openai import OpenAI
 from keys import api_key
-import openai
+import requests
+import io
 
 client = OpenAI(api_key=api_key)
 
-def generateImage(prompt):
+def generateImage(api, prompt):
 
     try:
         response = client.images.generate(
@@ -15,11 +16,11 @@ def generateImage(prompt):
             n=1
         )
 
-        return(response.data[0].url)
+        img_data = requests.get(response.data[0].url).content
+        img_data_file_like = io.BufferedReader(io.BytesIO(img_data))
 
-    except openai.BadRequestError:
-        return("Your request was rejected as a result of our safety system. Your prompt may contain text that is not allowed by our safety system.")
+        return api.media_upload(filename="temp.jpg", file=img_data_file_like)
 
-    except Exception:
-        return("An unexpected error occurred!")
+    except Exception as e:
+        return 'fail'
     
