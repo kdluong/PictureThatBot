@@ -6,7 +6,7 @@ import io
 # Generate Image using Tweet as Prompt
 
 
-def generateImage(api, prompt):
+def generate_image(api, prompt):
 
     try:
 

@@ -1,5 +1,5 @@
 from concurrent.futures import ThreadPoolExecutor
-from gpt4 import generateImage
+from gpt4 import generate_image
 from twitter import *
 import concurrent
 
@@ -21,9 +21,9 @@ def process_tweet(api, client, tweet):
         if original_tweet.errors != []:
             media = "failed"
         else:
-            media = generateImage(api, original_tweet.data.text)
+            media = generate_image(api, original_tweet.data.text)
     else:
-        media = generateImage(api, tweet.text)
+        media = generate_image(api, tweet.text)
 
     # Send Tweet/DM if Success/Fail
 
