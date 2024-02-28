@@ -59,12 +59,21 @@ def main():
 
             # Organize tweets into threads as appropriate
 
+            batch_size = 5
+
             with ThreadPoolExecutor() as executor:
-                futures = [
-                    executor.submit(process_tweet, api, client, tweet)
-                    for tweet in tweets.data
-                ]
-                concurrent.futures.wait(futures)
+                for i in range(0, len(tweets.data), batch_size):
+                    batch = tweets.data[i : i + batch_size]
+
+                    futures = [
+                        executor.submit(process_tweet, api, client, tweet)
+                        for tweet in batch
+                    ]
+
+                    concurrent.futures.wait(futures)
+
+                    print("Cooling down for 60 seconds...")
+                    time.sleep(60)
         else:
             print("No Tweets Yet...")
 
