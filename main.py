@@ -10,6 +10,8 @@ def process_tweet(api, client, tweet):
 
     # Generate an image based on tweet
 
+    print("Generating Image...")
+
     if tweet.referenced_tweets != None:
 
         # if reply, find original tweet

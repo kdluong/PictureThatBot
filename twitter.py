@@ -28,18 +28,18 @@ def get_client():
 
 
 def send_tweet(client, tweet_id, media_id):
-    try:
-        client.create_tweet(in_reply_to_tweet_id=tweet_id, media_ids=[media_id])
-    except tweepy.TweepyException as e:
-        print(e)
+
+    response_params = {"in_reply_to_tweet_id": tweet_id, "media_ids": [media_id]}
+
+    perform_tweepy_operation(client.create_tweet, **response_params)
 
 
 # Send Error via Direct Message
 
 
 def send_dm(client, id):
-    try:
-        response = """
+
+    response = """
             I encountered a little hiccup while fluttering my artistic feathers to craft an image for you. 
             Kindly ensure that your tweet is chirp-worthy and aligns with our artistic guidelines. 
             Feel free to give it another go, and I'll be back to paint your vision in a tweet-worthy masterpiece. 
@@ -47,9 +47,10 @@ def send_dm(client, id):
             
             \n\n- PictureThatBot
         """
-        client.create_direct_message(participant_id=id, text=response)
-    except tweepy.TweepyException as e:
-        print(e)
+
+    response_params = {"participant_id": id, "text": response}
+
+    perform_tweepy_operation(client.create_direct_message, **response_params)
 
 
 # Execute Tweepy Operation w/ Error Handling
@@ -66,6 +67,8 @@ def perform_tweepy_operation(api_operation, *args, **kwargs):
             result = api_operation(*args, **kwargs)
         except tweepy.errors.TooManyRequests as e:
 
+            # Handle Too Many Requests
+
             # Fetch wait time
 
             waitTime = int(e.response.headers["x-rate-limit-reset"])
@@ -76,6 +79,18 @@ def perform_tweepy_operation(api_operation, *args, **kwargs):
 
             print(f"Too many requests, sleeping for {time_remaining} seconds...")
             time.sleep(time_remaining)
+
+        except tweepy.errors.TweepyException as e:
+
+            # Handle other Tweepy-related errors
+
+            print(f"A Tweepy error occurred: \n\n{e}\n\n")
+
+        except Exception as e:
+
+            # Handle any other exceptions
+
+            print(f"An unexpected error occurred: \n\n{e}\n\n")
 
     return result
 
