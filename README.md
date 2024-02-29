@@ -4,28 +4,22 @@ Welcome to PictureThatBot, your personal Twitter artist! 🎨 Mention @pictureth
 
 ## Features
 
-- __Seamless Transaction Logging__
+- __Instant Image Generation__
 
 <blockquote>
-Effortlessly capture your income and expenses with an intuitive and user-friendly interface. Stay informed about your financial inflow and outflow with real-time precision.
+Experience the magic as PictureThatBot transforms your tweets into visual masterpieces on the fly using the power of OpenAI.
 </blockquote>
 
-- __Smart Categorization__
+- __Twitter Integration__
 
 <blockquote>
-Harness the power of categorization to streamline your financial insights. Organize transactions according to your unique preferences, making it a breeze to pinpoint areas for potential savings.
+Seamlessly integrated with Twitter to bring AI-generated images directly to your mentions.
 </blockquote>
  
-- __Deep Analytics__
+- __Scheduled Perfection__
  
 <blockquote>
-Gain a profound understanding of your financial habits through comprehensive analytics. Visualize your spending patterns across weeks, months, and years with dynamic pie charts and bar graphs.
-</blockquote>
-
-- __Receipt Management__
-
-<blockquote>
-Banish the hassle of lost receipts. With CashFlow, you can conveniently store and manage transaction-related receipts and vital documents, creating a digital archive of your financial history.
+Thanks to AWS Lambda, PictureThatBot runs like clockwork, generating artistic responses every 10 minutes.
 </blockquote>
 
 ## How to Use
@@ -33,28 +27,7 @@ Banish the hassle of lost receipts. With CashFlow, you can conveniently store an
 1. Mention @picturethatbot in your tweet.
 2. Await the artistic response generated just for you!
 
-## App Installation
+## Contribute
 
-1. Clone this repository.
-2. Navigate to the root of the repository and run `npm install` which will install all the dependencies.
-3. Running `npm expo start` will begin the development server.
-4. If you have XCode installed and an iPhone simulator, you can press `i` which will open the simulator and run the app.
-Otherwise, you have to install the Expo Go app on your phone and scan the QR code from the terminal with your camera
-to run the app on your phone in Expo Go. Make sure your phone and laptop are connected to the same wifi network to use the latter option.
-
-## Environment Setup
-
-1. Install Node
-https://nodejs.org/en/download/
-2. Install Yarn
-https://classic.yarnpkg.com/lang/en/docs/install/
-
-## Commands
-
-- `npx expo start` to begin the development server
-- `npx expo start ios` to run IOS simulator
-- `npx expo start android` to run Android simulator
-
-- `yarn lint` to lint code
-- `yarn lint --fix` to fix simple linting errors
-- `yarn format` to format code according to style guide
+Found a bug or have a feature request? Feel free to open an issue.
+Interested in improving PictureThatBot? Pull requests are always welcome!
