@@ -104,59 +104,23 @@ def fetch_tweets(client):
 
     print("1 of 3: Fetching Latest Reply")
 
-    latestTweet = fetch_latest_tweet(client)
-    client_id = client.get_me().data.id
-
-    # Fetch tweets mentioning @picturethatbot
-
-    print("2 of 3: Fetching Tweets")
-
-    response_params = {
-        "id": client_id,
-        "expansions": ["author_id", "referenced_tweets.id"],
-        "start_time": latestTweet[1],
-        "tweet_fields": ["created_at"],
-    }
-
-    if latestTweet[0] != None:
-        response_params["since_id"] = latestTweet[0]
-
-    return perform_tweepy_operation(client.get_users_mentions, **response_params)
-
-
-# Fetch Latest Processed Tweet
-
-
-def fetch_latest_tweet(client):
-
-    # Fetch latest proccessed tweet
-
-    response_params = {"max_results": 1, "expansions": ["referenced_tweets.id"]}
+    response_params = {"max_results": 1, "tweet_fields": ["created_at"]}
 
     latestResponse = perform_tweepy_operation(
         client.get_home_timeline, **response_params
     )
 
-    # Extract tweet's ID and date/time
+    # Fetch tweets mentioning @picturethatbot, since last reply
 
-    start_id = None
+    print("2 of 3: Fetching Tweets")
 
-    if latestResponse.data != None:
-        if latestResponse.data[0].referenced_tweets != None:
-            start_id = latestResponse.data[0].referenced_tweets[0].id
+    client_id = client.get_me().data.id
 
-            print("1A of 3: Fetching Original Tweet")
+    response_params = {
+        "id": client_id,
+        "expansions": ["author_id", "referenced_tweets.id"],
+        "max_results": 35,
+        "start_time": latestResponse.data[0].created_at.isoformat(),
+    }
 
-            response_params = {"id": start_id, "tweet_fields": ["created_at"]}
-
-            original_tweet = perform_tweepy_operation(
-                client.get_tweet, **response_params
-            )
-
-            start_date = original_tweet.data.created_at.isoformat()
-        else:
-            start_date = latestResponse.data.created_at.isoformat()
-    else:
-        start_date = datetime.now().isoformat()
-
-    return (start_id, start_date)
+    return perform_tweepy_operation(client.get_users_mentions, **response_params)

@@ -53,11 +53,11 @@ def main():
 
         tweets = fetch_tweets(client)
 
-        print("3 of 3: Generating Images")
-
         # Determine if tweets list contain tweets
 
         if tweets.data != None:
+
+            print("3 of 3: Generating Images")
 
             # Organize tweets into threads as appropriate
 
@@ -77,7 +77,7 @@ def main():
                     print("Cooling down for 60 seconds...")
                     time.sleep(60)
         else:
-            print("No Tweets Yet...")
+            print("3 of 3: No tweets yet...")
 
     else:
         print("Failed to authenticate with Twitter.")
