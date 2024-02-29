@@ -5,6 +5,11 @@ Welcome to PictureThatBot, your personal Twitter artist! 🎨 Mention @pictureth
 <p align="center">
     <img src=assets/README1.png width="500" />
     <img src=assets/README2.png width="500" />
+
+<p align="center">
+    <img src=assets/README3.png width="500" />
+</p>
+    
 </p>
 
 ![Alt Text](assets/README3.png)
