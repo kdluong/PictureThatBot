@@ -4,13 +4,11 @@ Welcome to PictureThatBot, your personal Twitter artist! 🎨 Mention @pictureth
 
 <p align="center">
     <img src=assets/README1.png width="500" />
-    <img src=assets/README1.png width="500" />
+    <img src=assets/README2.png width="500" />
 </p>
 
-<img src=assets/README1.png width="768" height="970"> <img src=assets/README1.png width="768" height="970">
+<img src=assets/README3.png width="768" height="970"> <img src=assets/README1.png width="768" height="970">
 
-![image](assets/README1.png)
-![Alt Text](assets/README2.png)
 ![Alt Text](assets/README3.png)
 
 ## Features
