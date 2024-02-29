@@ -5,10 +5,10 @@ Welcome to PictureThatBot, your personal Twitter artist! 🎨 Mention @pictureth
 
 <div align="center">
   <img src="assets/README1.png" alt="Readme 1" width="300"/>
-  <img src="assets/README1.png" alt="Readme 2" width="300"/>
+  <img src="assets/README2.png" alt="Readme 2" width="300"/>
 </div>
 
-<img src="path/to/readme3.jpg" alt="Readme 3" width="300"/>
+<img src="assets/README3.png" alt="Readme 3" width="300"/>
 
 <p align="center">
     <img src="assets/README1.png" width="500" />
