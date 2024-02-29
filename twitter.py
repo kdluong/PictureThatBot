@@ -119,7 +119,7 @@ def fetch_tweets(client):
     response_params = {
         "id": client_id,
         "expansions": ["author_id", "referenced_tweets.id"],
-        "max_results": 35,
+        "max_results": 10,
         "start_time": latestResponse.data[0].created_at.isoformat(),
     }
 
