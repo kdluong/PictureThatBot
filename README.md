@@ -16,6 +16,7 @@ Welcome to PictureThatBot, your personal Twitter artist! 🎨 Mention @pictureth
 
 1. Python
 2. AWS Lambda
+3. Twitter/X APIs
 
 ## How to Use
 
