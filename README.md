@@ -16,7 +16,10 @@ Welcome to PictureThatBot, your personal Twitter artist! 🎨 Mention @pictureth
 
 1. Python
 2. AWS Lambda
-3. Twitter/X APIs
+3. AWS ECR
+4. Twitter/X APIs
+5. Docker
+6. OpenAI DALL·E 3
 
 ## How to Use
 
