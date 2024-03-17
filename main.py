@@ -1,6 +1,6 @@
 from concurrent.futures import ThreadPoolExecutor
-from gpt4 import generate_image
 from twitter import *
+from gpt4 import generate_image
 import concurrent
 
 # Generate & Tweet Image
@@ -34,13 +34,19 @@ def process_tweet(api, client, tweet):
         print("Sent DM")
     else:
         send_tweet(client, tweet.id, media.media_id)
+
         print("Sent Tweet")
 
 
 # Handle Multithreading
 
 
-def main():
+# def main(event, context):
+
+# def main():
+
+
+def handler(event, context):
 
     # Attempt to authenticate user
 
@@ -83,5 +89,5 @@ def main():
         print("Failed to authenticate with Twitter.")
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

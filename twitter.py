@@ -1,7 +1,13 @@
 from datetime import datetime
-from keys import *
 import tweepy
 import time
+import os
+
+bearer_token = os.environ["bearer_token"]
+consumer_key = os.environ["consumer_key"]
+consumer_secret = os.environ["consumer_secret"]
+access_token = os.environ["access_token"]
+access_token_secret = os.environ["access_token_secret"]
 
 # Authenticate Twitter/X Account
 
@@ -102,19 +108,23 @@ def fetch_tweets(client):
 
     # Fetch latest reply, to prevent duplicates
 
+    client_id = client.get_me().data.id
+
     print("1 of 3: Fetching Latest Reply")
 
-    response_params = {"max_results": 1, "tweet_fields": ["created_at"]}
+    response_params = {
+        "id": client_id,
+        "max_results": 5,
+        "tweet_fields": ["created_at"],
+    }
 
     latestResponse = perform_tweepy_operation(
-        client.get_home_timeline, **response_params
+        client.get_users_tweets, **response_params
     )
 
     # Fetch tweets mentioning @picturethatbot, since last reply
 
     print("2 of 3: Fetching Tweets")
-
-    client_id = client.get_me().data.id
 
     response_params = {
         "id": client_id,

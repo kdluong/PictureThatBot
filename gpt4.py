@@ -1,7 +1,9 @@
 from openai import OpenAI
-from keys import api_key
 import requests
 import io
+import os
+
+api_key = os.environ["api_key"]
 
 # Generate Image using Tweet as Prompt
 
