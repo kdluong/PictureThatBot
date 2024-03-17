@@ -14,12 +14,12 @@ Welcome to PictureThatBot, your personal Twitter artist! 🎨 Mention @pictureth
 
 ### Built With
 
-1. Python
+1. AWS ECR
 2. AWS Lambda
-3. AWS ECR
-4. Twitter/X APIs
-5. Docker
-6. OpenAI DALL·E 3
+3. Docker
+4. OpenAI DALL·E 3
+5. Python
+6. Twitter/X APIs
 
 ## How to Use
 
