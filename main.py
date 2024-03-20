@@ -41,11 +41,6 @@ def process_tweet(api, client, tweet):
 # Handle Multithreading
 
 
-# def main(event, context):
-
-# def main():
-
-
 def handler(event, context):
 
     # Attempt to authenticate user
@@ -88,6 +83,3 @@ def handler(event, context):
     else:
         print("Failed to authenticate with Twitter.")
 
-
-# if __name__ == "__main__":
-#     main()
